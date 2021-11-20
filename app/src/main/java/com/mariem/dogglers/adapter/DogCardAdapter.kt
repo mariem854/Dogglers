@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.mariem.dogglers.data.DataSource
 import com.mariem.dogglers.R
+import com.mariem.dogglers.const.Layout
 
 
 
@@ -39,16 +40,17 @@ class DogCardAdapter(
         // TODO: Use a conditional to determine the layout type and set it accordingly.
         //  if the layout variable is Layout.GRID the grid list item should be used. Otherwise the
         //  the vertical/horizontal list item should be used.
-        val typeLayout: Int
-        if (layout == .GRID) {
-            typeLayout = R.layout.grid_list_item
-        } else {
-            typeLayout = R.layout.vertical_horizontal_list_item
+        val layoutType: Int
+        if
+                (layout == Layout.GRID) {
+            layoutType = R.layout.grid_list_item
+        }
+        else {
+            layoutType = R.layout.vertical_horizontal_list_item
         }
 
         // TODO Inflate the layout
-
-        val layoutAdapter = LayoutInflater.from(parent.context).inflate(typeLayout, parent, false)
+        val layoutAdapter = LayoutInflater.from(parent.context).inflate(layoutType, parent, false)
         // TODO: Null should not be passed into the view holder. This should be updated to reflect
         //  the inflated layout.
         return DogCardViewHolder(layoutAdapter)
@@ -73,4 +75,5 @@ class DogCardAdapter(
         //  resources?.getString(R.string.dog_hobbies, dog.hobbies)
         holder.dogHobbies.text = resources!!.getString(R.string.dog_hobbies, dog.hobbies)
     }
+}
 
